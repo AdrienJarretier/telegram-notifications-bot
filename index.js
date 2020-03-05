@@ -21,7 +21,17 @@ async function notify_when_process_done(processName) {
     }
 }
 
-notify_when_process_done("shred");
+if (process.argv.length < 3) {
+
+    console.error("missing process name argument")
+    console.error("example usage : node . shred")
+
+}
+else {
+
+    notify_when_process_done(process.argv[2]);
+}
+
 
 
 
