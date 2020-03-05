@@ -12,7 +12,7 @@ async function notify_when_process_done(processName) {
 
         await exec("pgrep -c " + processName);
 
-        setTimeout(notify_when_process_done, 60000);
+        setTimeout(() => notify_when_process_done(processName), 60000);
 
     } catch (e) {
 
