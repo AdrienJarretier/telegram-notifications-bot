@@ -84,6 +84,7 @@ async function simpleRequest(method, parameters) {
   } catch (err) {
 
     console.error("error when sending "+method.method);
+    console.error(err);
 
   }
 
