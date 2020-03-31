@@ -3,7 +3,7 @@
 const fs = require('fs');
 const superagent = require('superagent');
 
-let rawdata = fs.readFileSync('config.json');
+let rawdata = fs.readFileSync('../config.json');
 let config = JSON.parse(rawdata);
 
 const BOT_TOKEN = config.bot_token;

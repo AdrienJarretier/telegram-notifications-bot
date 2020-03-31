@@ -1,6 +1,6 @@
 "use strict";
 
-const api = require("./api.js")
+const api = require("cotController/control.js")
 
 
 const util = require("util");
