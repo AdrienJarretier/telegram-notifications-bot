@@ -11,27 +11,29 @@ const BOT_TOKEN = config.bot_token;
 const BASE_API_ULR = config.telegram_api_url;
 
 const METHODS = {
-    
-    getMe : {method:"getMe",
-        fixedParameters:{}
-        },
-    getUpdates : {method:"getUpdates",
-        fixedParameters:{}
-        },
-    sendMessage : {
-        method:"sendMessage",
-        fixedParameters:{
-            chat_id: config.chat_id
-        }
+
+  getMe: {
+    method: "getMe",
+    fixedParameters: {}
+  },
+  getUpdates: {
+    method: "getUpdates",
+    fixedParameters: {}
+  },
+  sendMessage: {
+    method: "sendMessage",
+    fixedParameters: {
+      chat_id: config.chat_id
     }
-    
+  }
+
 }
 
 function makeApiCallUrl(method) {
 
-    let url = BASE_API_ULR + BOT_TOKEN + '/' + method;
+  let url = BASE_API_ULR + BOT_TOKEN + '/' + method;
 
-    return url;
+  return url;
 
 }
 
@@ -43,11 +45,11 @@ async function simpleRequest(method, parameters) {
   try {
 
     const res = await superagent.get(url)
-    .query(Object.assign(parameters, method.fixedParameters));
-    
+      .query(Object.assign(parameters, method.fixedParameters));
+
   } catch (err) {
 
-    console.error("error when sending "+method.method);
+    console.error("error when sending " + method.method);
     console.error(err);
 
   }
@@ -56,9 +58,9 @@ async function simpleRequest(method, parameters) {
 }
 
 function sendMessage(text) {
-    
-    simpleRequest(METHODS.sendMessage, {text:text})
-    
+
+  simpleRequest(METHODS.sendMessage, { text: text })
+
 }
 
 exports.sendMessage = sendMessage
