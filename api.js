@@ -7,7 +7,6 @@ let rawdata = fs.readFileSync('config.json');
 let config = JSON.parse(rawdata);
 
 const BOT_TOKEN = config.bot_token;
-// const timestamp = date ('YmdHis', time()-3600);
 
 const BASE_API_ULR = config.telegram_api_url;
 
@@ -28,23 +27,6 @@ const METHODS = {
     
 }
 
-/* function getTimestamp() {
-  function pad2(n) {  // always returns a string
-      return (n < 10 ? '0' : '') + n;
-  }
-
-  let nowDate = new Date();
-
-  nowDate.setTime(nowDate.getTime()-3600000);
-
-  return nowDate.getFullYear() +
-         pad2(nowDate.getMonth() + 1) + 
-         pad2(nowDate.getDate()) +
-         pad2(nowDate.getHours()) +
-         pad2(nowDate.getMinutes()) +
-         pad2(nowDate.getSeconds());
-} */
-
 function makeApiCallUrl(method) {
 
     let url = BASE_API_ULR + BOT_TOKEN + '/' + method;
@@ -52,24 +34,6 @@ function makeApiCallUrl(method) {
     return url;
 
 }
-
-/* async function createSession() {
-
-  let url = makeApiCallUrl("createSession");
-
-  try {
-
-    const res = await superagent.get(url);
-    console.log(res.body);
-    
-  } catch (err) {
-
-    console.error(err);
-
-  }
-
-
-} */
 
 async function simpleRequest(method, parameters) {
 
